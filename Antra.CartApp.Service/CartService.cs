@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Antra.CartApp.Model;
 using Antra.CartApp.Data.Repository;
+using System.Globalization;
+
 namespace Antra.CartApp.Service
 {
     public class CartService
@@ -11,8 +13,8 @@ namespace Antra.CartApp.Service
         IRepository<Orange> oranges;
         public CartService()
         {
-            AppleRepository apples = new AppleRepository();
-            OrangeRepository oranges = new OrangeRepository();
+            apples = new AppleRepository();
+            oranges = new OrangeRepository();
         }
         public void AddApple()
         {
@@ -33,7 +35,8 @@ namespace Antra.CartApp.Service
             double bill = appleBill + orangeBill;
             double real_bill = bill / 100.00;
             StringBuilder sb = new StringBuilder();
-            sb.Append("$").Append(bill);
+            sb.Append("$").Append(real_bill.ToString("0.00", new CultureInfo("en-US", false)));
+           
             return sb.ToString();
         }
     }

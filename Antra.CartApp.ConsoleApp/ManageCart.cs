@@ -60,7 +60,6 @@ namespace Antra.CartApp.ConsoleApp
 
                 AddItemToCart(item, quantity);
 
-                Console.Read();
                 Run();
 
             }
@@ -72,7 +71,7 @@ namespace Antra.CartApp.ConsoleApp
             else
             {
                 Console.WriteLine("Lets try this again");
-                Console.Read();
+
                 Run();
             }
             
